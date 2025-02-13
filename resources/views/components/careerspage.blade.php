@@ -16,7 +16,7 @@
 
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Tecnozard |</title>
+  <title>Tecnozard</title>
   <meta name="description" content="Innovation & Excellence - Harnessing the power of technology to deliver high-impact, scalable solutions for your business.">
   <meta name="keywords" content="Tecnozard">
   <meta property="og:title" content="Tecnozard Private Limited">
@@ -55,7 +55,7 @@
 
 </head>
 
-<body class="index-page">
+<body class="index-page" >
 @include('components.navbar')
 <!-- internship Section -->
 <section id="internship" class="internship section" style="padding-top: 70px;">
@@ -95,7 +95,7 @@
         <img src="{{asset('img/job/internship.avif')}}" class="img-fluid" alt="">
         <div class="internship-info">
           <h4>Internship Training</h4>
-          <a href="/internshipdetials" style="font-size: 20px;" title="More Details" class="details-link"><i class="bi bi-link-45deg" ></i>Apply</a>
+          <a href="/internshipdetails" style="font-size: 20px;" title="More Details" class="details-link"><i class="bi bi-link-45deg" ></i>Apply</a>
         </div>
       </div>
 

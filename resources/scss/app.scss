@@ -468,6 +468,15 @@
     }
   }
 
+  //navbar active
+  .navmenu ul li a.active {
+    color: #ff6600; /* Change to your preferred color */
+    font-weight: bold;
+    border-bottom: 2px solid #ff6600;
+    text-decoration: none;
+}
+
+
 
   /* Listing Dropdown - Desktop */
   @media (min-width: 1200px) {
@@ -1584,6 +1593,19 @@
       font-size: 14px;
       margin: 0 5px;
     }
+  }
+
+
+  @media (max-width: 1200px) {
+    .internship .internship-content .internship-info {
+
+        position: absolute;
+        inset: 0;
+        z-index: 3;
+        transition: all ease-in-out 0.3s;
+        background: rgba(0, 0, 0, 0.6);
+        padding: 15px;
+      }
   }
 
   .internship .internship-content {
@@ -3112,6 +3134,8 @@
     position: relative;
   }
 
+
+
   .internship .internship-item .internship-info {
     background-color: color-mix(in srgb, var(--surface-color), transparent 10%);
     opacity: 0;
@@ -3123,6 +3147,12 @@
     transition: all ease-in-out 0.3s;
     padding: 15px;
   }
+  @media (max-width: 1200px) {
+    .internship .internship-item .internship-info {
+      opacity: 1; /* Remove opacity */
+    }
+  }
+
 
   .internship .internship-item .internship-info h4 {
     font-size: 18px;
@@ -3225,3 +3255,5 @@
     padding: 0;
     color: color-mix(in srgb, var(--default-color), transparent 30%);
   }
+
+

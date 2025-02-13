@@ -261,7 +261,7 @@ app.controller('CareerController', function ($scope, $http) {
             headers: { 'Content-Type': undefined }
         }).then(function (response) {
             $scope.successMessage = "Form submitted successfully!";
-            
+
             // Reset the form
              // Reset model
             $scope.career = {}; // Clear form
@@ -276,7 +276,20 @@ app.controller('CareerController', function ($scope, $http) {
             console.error('Submission Error:', error);
         });
     };
+    document.getElementById("careerResume").addEventListener("change", function () {
+        let file = this.files[0]; // Get the uploaded file
+        let maxSize = 2 * 1024 * 1024; // 2MB in bytes
+        let errorMsg = document.getElementById("careerResumeError");
+
+        if (file && file.size > maxSize) {
+            errorMsg.textContent = "File size is more than 2MB. Please reduce and upload again.";
+            this.value = ""; // Clear the file input
+        } else {
+            errorMsg.textContent = ""; // Clear error if valid
+        }
+    });
 });
+
 
 //date formate for internship
 
@@ -360,7 +373,31 @@ app.controller('InternshipController', function ($scope, $http) {
             alert('Please fill in all required fields.');
         }
     };
+    document.querySelectorAll('input[type="file"]').forEach(input => {
+        input.addEventListener("change", function () {
+            let file = this.files[0]; // Get the uploaded file
+            let errorMsg = document.getElementById(this.id + "Error"); // Get the corresponding error message element
+            let maxSize;
+
+            // Define max size based on input type
+            if (this.id === "resume") {
+                maxSize = 2 * 1024 * 1024; // 2MB for Resume
+            } else if (this.id === "paymentProof") {
+                maxSize = 1 * 1024 * 1024; // 1MB for Payment Proof
+            } else if (this.id === "idProof") {
+                maxSize = 2 * 1024 * 1024; // 2MB for ID Proof
+            }
+
+            if (file && file.size > maxSize) {
+                errorMsg.textContent = "File size is more than " + (maxSize / (1024 * 1024)) + "MB. Please reduce and upload again.";
+                this.value = ""; // Clear the file input
+            } else {
+                errorMsg.textContent = ""; // Clear error if valid
+            }
+        });
+    });
 });
+
 
 
 
@@ -434,4 +471,26 @@ app.controller('ContactController', function ($scope, $http, $timeout) {
     };
 });
 
+
+//nav bar
+document.addEventListener("DOMContentLoaded", function () {
+    // Get the current page URL path
+    let currentPath = window.location.pathname;
+
+    // Select all nav links
+    let navLinks = document.querySelectorAll("#navmenu ul li a");
+
+    // Remove 'active' class from all links
+    navLinks.forEach(link => link.classList.remove("active"));
+
+    // Loop through links and set active class only for exact matches
+    navLinks.forEach(link => {
+        let linkPath = link.getAttribute("href");
+
+        // Ensure the linkPath is valid and does not contain '#'
+        if (linkPath && linkPath !== "#" && linkPath !== "#hero" && linkPath === currentPath) {
+            link.classList.add("active");
+        }
+    });
+});
 

@@ -7710,6 +7710,17 @@ app.controller('CareerController', function ($scope, $http) {
       console.error('Submission Error:', error);
     });
   };
+  document.getElementById("careerResume").addEventListener("change", function () {
+    var file = this.files[0]; // Get the uploaded file
+    var maxSize = 2 * 1024 * 1024; // 2MB in bytes
+    var errorMsg = document.getElementById("careerResumeError");
+    if (file && file.size > maxSize) {
+      errorMsg.textContent = "File size is more than 2MB. Please reduce and upload again.";
+      this.value = ""; // Clear the file input
+    } else {
+      errorMsg.textContent = ""; // Clear error if valid
+    }
+  });
 });
 
 //date formate for internship
@@ -7788,6 +7799,28 @@ app.controller('InternshipController', function ($scope, $http) {
       alert('Please fill in all required fields.');
     }
   };
+  document.querySelectorAll('input[type="file"]').forEach(function (input) {
+    input.addEventListener("change", function () {
+      var file = this.files[0]; // Get the uploaded file
+      var errorMsg = document.getElementById(this.id + "Error"); // Get the corresponding error message element
+      var maxSize;
+
+      // Define max size based on input type
+      if (this.id === "resume") {
+        maxSize = 2 * 1024 * 1024; // 2MB for Resume
+      } else if (this.id === "paymentProof") {
+        maxSize = 1 * 1024 * 1024; // 1MB for Payment Proof
+      } else if (this.id === "idProof") {
+        maxSize = 2 * 1024 * 1024; // 2MB for ID Proof
+      }
+      if (file && file.size > maxSize) {
+        errorMsg.textContent = "File size is more than " + maxSize / (1024 * 1024) + "MB. Please reduce and upload again.";
+        this.value = ""; // Clear the file input
+      } else {
+        errorMsg.textContent = ""; // Clear error if valid
+      }
+    });
+  });
 });
 
 //admin login
@@ -7839,6 +7872,30 @@ app.controller('ContactController', function ($scope, $http, $timeout) {
       $scope.loading = false;
     });
   };
+});
+
+//nav bar
+document.addEventListener("DOMContentLoaded", function () {
+  // Get the current page URL path
+  var currentPath = window.location.pathname;
+
+  // Select all nav links
+  var navLinks = document.querySelectorAll("#navmenu ul li a");
+
+  // Remove 'active' class from all links
+  navLinks.forEach(function (link) {
+    return link.classList.remove("active");
+  });
+
+  // Loop through links and set active class only for exact matches
+  navLinks.forEach(function (link) {
+    var linkPath = link.getAttribute("href");
+
+    // Ensure the linkPath is valid and does not contain '#'
+    if (linkPath && linkPath !== "#" && linkPath !== "#hero" && linkPath === currentPath) {
+      link.classList.add("active");
+    }
+  });
 });
 
 /***/ })

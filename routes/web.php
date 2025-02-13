@@ -43,8 +43,8 @@ Route::get('/careerspage', function () {
 Route::get('/internship', function () {
     return view('components.internship');
 });
-Route::get('/internshipdetials', function () {
-    return view('components.internshipdetials');
+Route::get('/internshipdetails', function () {
+    return view('components.internshipdetails');
 });
 
 Route::get('/adminlogin', function () {
@@ -62,6 +62,10 @@ Route::get('/digital_marketing', function () {
 Route::get('/project', function () {
     return view('components.services.project');
 });
-
-
+Route::get('/data-entry', function () {
+    return view('components.services.data_entry');
+});
+Route::get('/non-services', function () {
+    return view('components.services.non-services');
+});
 

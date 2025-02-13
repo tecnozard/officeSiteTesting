@@ -61,7 +61,7 @@
             background: linear-gradient(90deg, #fff1eb 0%, #ace0f9 100%);
             color: #222;
             overflow-x: hidden;
-           
+
         }
         .web-main {
             display: flex;
@@ -69,6 +69,7 @@
             justify-content: space-around;
             flex-wrap: wrap;
             padding: 50px 10%;
+            padding-top: 100px;
 
         }
         .image-web img {
