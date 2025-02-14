@@ -2,7 +2,7 @@
     <div class="container footer-top">
         <div class="row gy-4">
             <div class="col-lg-4 col-md-6 footer-about">
-                <a href="index.html" class="d-flex align-items-center">
+                <a href="/" class="d-flex align-items-center">
                     <span class="sitename">TECNOZARD</span>
                 </a>
                 <div class="footer-contact pt-3">
@@ -19,20 +19,20 @@
                 <ul>
                     <li><i class="bi bi-chevron-right"></i> <a href="/">Home</a></li>
                     <!-- <li><i class="bi bi-chevron-right"></i> <a href="">About us</a></li> -->
-                    <li><i class="bi bi-chevron-right"></i> <a href="#features">Features</a></li>
-                    <li><i class="bi bi-chevron-right"></i> <a href="#services">Services</a></li>
-                    <li><i class="bi bi-chevron-right"></i> <a href="/terms">Terms and condition</a></li>
-                    <li><i class="bi bi-chevron-right"></i> <a href="/privacy">Privacy Policy</a></li>
+                    <li><i class="bi bi-chevron-right"></i> <a href="{{ route('contactpage') }}">Contact</a></li>
+                    <li><i class="bi bi-chevron-right"></i> <a href="{{ route('careerspage') }}">Career</a></li>
+                    <li><i class="bi bi-chevron-right"></i> <a href="{{ route('termspage') }}">Terms and condition</a></li>
+                    <li><i class="bi bi-chevron-right"></i> <a href="{{ route('privacypage') }}">Privacy Policy</a></li>
                 </ul>
             </div>
 
             <div class="col-lg-2 col-md-3 footer-links">
                 <h4>Our Services</h4>
                 <ul>
-                    <li><i class="bi bi-chevron-right"></i><a href="/web-application"> Web Design</a></li>
-                    <li><i class="bi bi-chevron-right"></i><a href="/web-application"> Web Development</a></li>
-                    <li><i class="bi bi-chevron-right"></i><a href="/digital_marketing"> Digital Marketing</a></li>
-                    <li><i class="bi bi-chevron-right"></i><a href="/internshipdetials"> Internship</a></li>
+                    <li><i class="bi bi-chevron-right"></i><a href="{{ route('webapplicationpage') }}"> Web Development</a></li>
+                    <li><i class="bi bi-chevron-right"></i><a href="{{ route('project') }}"> Final year Project</a></li>
+                    <li><i class="bi bi-chevron-right"></i><a href="{{ route('digitalmarketing') }}"> Digital Marketing</a></li>
+                    <li><i class="bi bi-chevron-right"></i><a href="{{ route('internshipdetails') }}"> Internship</a></li>
                 </ul>
             </div>
 
@@ -52,7 +52,8 @@
         </div>
     </div>
 
-    <div class="container copyright text-center mt-4">
+    <div class="container copyright text-center mt-2">
+    <img src="{{ asset('img/Tecnozard v1.png') }}" style="width: 100px; height: 50px;" alt="">
     <p>© <span id="year"></span> <span>Copyright</span> <strong class="px-1 sitename">TecnoZard</strong> <span>All Rights Reserved</span></p>
 
 <script>

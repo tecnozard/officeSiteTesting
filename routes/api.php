@@ -33,3 +33,6 @@ Route::prefix('internships')->group(function () {
 });
 Route::post('/admin/login', [AuthController::class, 'login']);
 Route::post('/contact', [ContactController::class, 'submitForm']);
+use App\Http\Controllers\TypingTestController;
+
+Route::post('/save-typing-test', [TypingTestController::class, 'saveTypingTestResult']);

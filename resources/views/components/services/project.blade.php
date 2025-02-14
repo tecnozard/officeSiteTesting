@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"  ng-app="changename">
 <head>
 <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
   <link href="{{ asset('vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
@@ -37,7 +37,7 @@
 
 
   <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    <title>Final Year Project</title>
+  <title>Tecnozard</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
@@ -192,7 +192,7 @@
                 <!-- <li>Secure API Endpoints</li> -->
             </ul>
 
-            <a href="/contact" class="btn">Contact Us</a>
+            <a href="{{ route('contactpage') }}" class="btn">Contact Us</a>
         </div>
     </div>
     @include('components.footer')

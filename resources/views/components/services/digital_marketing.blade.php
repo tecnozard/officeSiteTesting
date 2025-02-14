@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"  ng-app="changename">
 <head>
 <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
   <link href="{{ asset('vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
@@ -46,7 +46,7 @@
 
 
   <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    <title>Digital Marketing Services</title>
+  <title>Tecnozard</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
@@ -61,7 +61,7 @@
             background: linear-gradient(90deg, #fff1eb 0%, #ace0f9 100%);
             color: #222;
             overflow-x: hidden;
-           
+
         }
         .web-main {
             display: flex;
@@ -69,6 +69,7 @@
             justify-content: space-around;
             flex-wrap: wrap;
             padding: 50px 10%;
+            padding-top: 100px;
 
         }
         .image-web img {
@@ -202,7 +203,7 @@
                 <li>Website & Conversion Optimization</li>
             </ul>
 
-            <a href="/contact" class="btn">Contact Us</a>
+            <a href="{{ route('contactpage') }}" class="btn">Contact Us</a>
         </div>
     </div>
     @include('components.footer')

@@ -27,7 +27,6 @@ class InternshipController extends Controller
      */
     public function store(Request $request)
     {
-        $mailUsername = config('mail.mailers.smtp.username');
         $request->validate([
             'full_name' => 'required|string',
             'dob' => 'required|date_format:d-m-Y',
@@ -74,7 +73,7 @@ class InternshipController extends Controller
         // Save to database
         $internship = Internship::create($data);
         // Send email to admin
-    Mail::to($mailUsername)->send(new InternshipAdminMail($internship));
+    Mail::to('poovarasan@tecnozard.com')->send(new InternshipAdminMail($internship));
         // Send email to user
     Mail::to($internship->email)->send(new InternshipUserMail($internship));
 

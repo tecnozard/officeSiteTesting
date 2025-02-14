@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"  ng-app="changename">
 <head>
     <meta charset="UTF-8">
     <title>Admin Dashboard</title>

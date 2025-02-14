@@ -12,7 +12,7 @@
 
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Tecnozard |</title>
+    <title>Tecnozard</title>
     <meta name="description" content="Innovation & Excellence - Harnessing the power of technology to deliver high-impact, scalable solutions for your business.">
     <meta name="keywords" content="Tecnozard">
     <meta property="og:title" content="Tecnozard Private Limited">
@@ -25,10 +25,6 @@
     <meta name="twitter:title" content="Tecnozard Private Limited">
     <meta name="twitter:description" content="Innovation & Excellence - Harnessing the power of technology to deliver high-impact, scalable solutions for your business.">
     <meta name="twitter:image" content="https://tecnozard.com/assets/img/TZ logo.png">
-
-
-
-
     <!-- Favicons -->
     <link href="{{ asset('img/TZ logo.png') }}" rel="icon">
     <link href="{{ asset('img/apple-touch-icon.png') }}" rel="apple-touch-icon">
@@ -50,34 +46,33 @@
 
     <style>
         .custom-input {
-    border-radius: 10px;
-    padding: 10px;
-    border: 2px solid #ddd;
-    transition: border-color 0.3s ease;
-}
+            border-radius: 10px;
+            padding: 10px;
+            border: 2px solid #ddd;
+            transition: border-color 0.3s ease;
+        }
 
-.custom-input:focus {
-    border-color: #3f51b5;
-    outline: none;
-}
+        .custom-input:focus {
+            border-color: #3f51b5;
+            outline: none;
+        }
 
-.custom-radio {
-    margin-right: 10px;
-}
+        .custom-radio {
+            margin-right: 10px;
+        }
 
-.custom-checkbox {
-    margin-right: 10px;
-}
+        .custom-checkbox {
+            margin-right: 10px;
+        }
 
-.custom-input[type="file"] {
-    background-color: #f4f7fc;
-    border: 1px solid #ccc;
-}
+        .custom-input[type="file"] {
+            background-color: #f4f7fc;
+            border: 1px solid #ccc;
+        }
 
-.custom-input[type="file"]:hover {
-    border-color: #3f51b5;
-}
-
+        .custom-input[type="file"]:hover {
+            border-color: #3f51b5;
+        }
     </style>
 
 
@@ -88,145 +83,172 @@
 <body class="index-page" ng-controller="InternshipController">
     @include('components.navbar')
 
-    <div class="container mt-5">
-    <div class="card p-5 shadow-xl rounded-lg" style="max-width: 750px; margin: auto; background-color: #f9f9f9; border: none;">
-        <h3 class="text-center mb-5 text-dark" style="font-family: 'Montserrat', sans-serif; font-weight: 700; color: #4A90E2;">
-            Internship Registration Form
-        </h3>
-        <form id="internshipForm" name="internshipForm" ng-submit="submitInternshipForm()">
+    <div class="container mt-5" style="padding-top: 60px;">
+        <div class="card p-5 shadow-xl rounded-lg" style="max-width: 750px; margin: auto; background-color: #f9f9f9; border: none;">
+            <h3 class="text-center mb-5 text-dark" style="font-family: 'Montserrat', sans-serif; font-weight: 700; color: #4A90E2;">
+                Internship Registration Form
+            </h3>
+            <form id="internshipForm" name="internshipForm" ng-submit="submitInternshipForm()">
 
-            <!-- Personal Information -->
-            <h5 class="text-info mb-4" style="font-family: 'Poppins', sans-serif; font-size: 1.1rem; font-weight: 600;">1. Personal Information</h5>
-            <div class="form-group mb-3">
-                <label class="text-muted" for="fullName">Full Name</label>
-                <input type="text" class="form-control border-0 shadow-sm rounded-3" ng-model="intern.full_name" placeholder="First Name Last Name" required>
-            </div>
-            <div class="form-group mb-3">
-                <label class="text-muted" for="dob">Date of Birth</label>
-                <input type="date" class="form-control border-0 shadow-sm rounded-3" ng-model="intern.dob" required>
-            </div>
-            <div class="form-group mb-3">
-                <label class="text-muted" for="gender">Gender</label>
-                <select class="form-control border-0 shadow-sm rounded-3" ng-model="intern.gender" required>
-                    <option value="">Select</option>
-                    <option>Male</option>
-                    <option>Female</option>
-                    <option>Other</option>
-                </select>
-            </div>
-            <div class="form-group mb-3">
-                <label class="text-muted" for="email">Email Address</label>
-                <input type="email" class="form-control border-0 shadow-sm rounded-3" ng-model="intern.email" placeholder="Enter your email" required>
-            </div>
-            <div class="form-group mb-3">
-                <label class="text-muted" for="phone">Phone Number (WhatsApp Preferred)</label>
-                <input type="tel" class="form-control border-0 shadow-sm rounded-3" ng-model="intern.phone" placeholder="Enter your phone number" required>
-            </div>
-            <div class="form-group mb-3">
-                <label class="text-muted" for="altPhone">Alternative Phone Number (Optional)</label>
-                <input type="tel" class="form-control border-0 shadow-sm rounded-3" ng-model="intern.alt_phone" placeholder="Enter an alternative phone number">
-            </div>
-            <div class="form-group mb-3">
-                <label class="text-muted" for="currentAddress">Current Address</label>
-                <textarea class="form-control border-0 shadow-sm rounded-3" ng-model="intern.current_address" placeholder="Enter your current address" required></textarea>
-            </div>
-            <div class="form-group mb-3">
-                <label class="text-muted" for="permanentAddress">Permanent Address</label>
-                <textarea class="form-control border-0 shadow-sm rounded-3" ng-model="intern.permanent_address" placeholder="Enter your permanent address"></textarea>
-            </div>
+                <!-- Personal Information -->
+                <h5 class="text-info mb-4" style="font-family: 'Poppins', sans-serif; font-size: 1.1rem; font-weight: 600;">1. Personal Information</h5>
+                <div class="form-group mb-3">
+                    <label class="text-muted" for="fullName">Full Name</label>
+                    <input type="text" class="form-control border-0 shadow-sm rounded-3" ng-model="intern.full_name" placeholder="First Name Last Name" required>
+                </div>
+                <div class="form-group mb-3">
+                    <label class="text-muted" for="dob">Date of Birth</label>
+                    <input type="date" class="form-control border-0 shadow-sm rounded-3" ng-model="intern.dob" required>
+                </div>
+                <div class="form-group mb-3">
+                    <label class="text-muted" for="gender">Gender</label>
+                    <select class="form-control border-0 shadow-sm rounded-3" ng-model="intern.gender" required>
+                        <option value="">Select</option>
+                        <option>Male</option>
+                        <option>Female</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+                <div class="form-group mb-3">
+                    <label class="text-muted" for="email">Email Address</label>
+                    <input type="email" class="form-control border-0 shadow-sm rounded-3" ng-model="intern.email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group mb-3">
+                    <label class="text-muted" for="phone">Phone Number (WhatsApp Preferred)</label>
+                    <input type="tel" class="form-control border-0 shadow-sm rounded-3"
+                        ng-model="intern.phone"
+                        placeholder="Enter your phone number"
+                        maxlength="10"
+                        pattern="\d{10}"
+                        required
+                        oninput="this.value = this.value.replace(/\D/g, '').slice(0, 10)">
+                </div>
 
-            <!-- Educational Details -->
-            <h5 class="text-info mb-4" style="font-family: 'Poppins', sans-serif; font-size: 1.1rem; font-weight: 600;">2. Educational Details</h5>
-            <div class="form-group mb-3">
-                <label class="text-muted" for="college">College/University Name</label>
-                <input type="text" class="form-control border-0 shadow-sm rounded-3" ng-model="intern.college" required>
-            </div>
-            <div class="form-group mb-3">
-                <label class="text-muted" for="degree">Degree & Major</label>
-                <input type="text" class="form-control border-0 shadow-sm rounded-3" ng-model="intern.degree" placeholder="e.g., B.Tech in Computer Science" required>
-            </div>
-            <div class="form-group mb-3">
-                <label class="text-muted" for="year">Year of Study</label>
-                <select class="form-control border-0 shadow-sm rounded-3" ng-model="intern.year" required>
-                    <option>1st Year</option>
-                    <option>2nd Year</option>
-                    <option>3rd Year</option>
-                    <option>4th Year</option>
-                </select>
-            </div>
-            <div class="form-group mb-3">
-                <label class="text-muted" for="graduationYear">Expected Graduation Year</label>
-                <input type="number" class="form-control border-0 shadow-sm rounded-3" ng-model="intern.graduation_year" required>
-            </div>
+                <div class="form-group mb-3">
+                    <label class="text-muted" for="altPhone">Alternative Phone Number (Optional)</label>
+                    <input type="tel" class="form-control border-0 shadow-sm rounded-3"
+                        ng-model="intern.alt_phone"
+                        placeholder="Enter an alternative phone number"
+                        maxlength="10"
+                        pattern="\d{10}"
+                        oninput="this.value = this.value.replace(/\D/g, '').slice(0, 10)">
+                </div>
 
-            <!-- Internship Preferences -->
-            <h5 class="text-info mb-4" style="font-family: 'Poppins', sans-serif; font-size: 1.1rem; font-weight: 600;">3. Internship Preferences</h5>
-            <label class="text-muted">Preferred Internship Type</label>
-            <div class="mb-3">
+                <div class="form-group mb-3">
+                    <label class="text-muted" for="currentAddress">Current Address</label>
+                    <textarea class="form-control border-0 shadow-sm rounded-3" ng-model="intern.current_address" placeholder="Enter your current address" required></textarea>
+                </div>
+                <div class="form-group mb-3">
+                    <label class="text-muted" for="permanentAddress">Permanent Address</label>
+                    <textarea class="form-control border-0 shadow-sm rounded-3" ng-model="intern.permanent_address" placeholder="Enter your permanent address"></textarea>
+                </div>
+
+                <!-- Educational Details -->
+                <h5 class="text-info mb-4" style="font-family: 'Poppins', sans-serif; font-size: 1.1rem; font-weight: 600;">2. Educational Details</h5>
+                <div class="form-group mb-3">
+                    <label class="text-muted" for="college">College/University Name</label>
+                    <input type="text" class="form-control border-0 shadow-sm rounded-3" ng-model="intern.college" required>
+                </div>
+                <div class="form-group mb-3">
+                    <label class="text-muted" for="degree">Degree & Major</label>
+                    <input type="text" class="form-control border-0 shadow-sm rounded-3" ng-model="intern.degree" placeholder="e.g., B.Tech in Computer Science" required>
+                </div>
+                <div class="form-group mb-3">
+                    <label class="text-muted" for="year">Year of Study</label>
+                    <select class="form-control border-0 shadow-sm rounded-3" ng-model="intern.year" required>
+                        <option>1st Year</option>
+                        <option>2nd Year</option>
+                        <option>3rd Year</option>
+                        <option>4th Year</option>
+                    </select>
+                </div>
+                <div class="form-group mb-3">
+                    <label class="text-muted" for="graduationYear">Expected Graduation Year</label>
+                    <input type="number" class="form-control border-0 shadow-sm rounded-3" ng-model="intern.graduation_year" required>
+                </div>
+
+                <!-- Internship Preferences -->
+                <h5 class="text-info mb-4" style="font-family: 'Poppins', sans-serif; font-size: 1.1rem; font-weight: 600;">3. Internship Preferences</h5>
+                <label class="text-muted">Preferred Internship Type</label>
+                <div class="mb-3">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="internshipType" ng-model="intern.internship_type" value="Basic" required>
+                        <label class="form-check-label">Basic (1 Month) - ₹1,499</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="internshipType" ng-model="intern.internship_type" value="Advanced">
+                        <label class="form-check-label">Advanced (3 Months) - ₹4,999</label>
+                    </div>
+                    <!-- Payment Details Section -->
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="internshipType" ng-model="intern.internship_type" value="Pro">
+                        <label class="form-check-label">Pro (3-6 Months, Live Project) - ₹9,999</label>
+                    </div>
+                </div>
+                <h5 class="text-info mb-4" style="font-family: 'Poppins', sans-serif; font-size: 1.1rem; font-weight: 600;">4. Payment Details</h5>
+                    <div class="p-3 mb-3 bg-light border rounded-3">
+                        <p class="mb-1"><strong>Name:</strong> Tecnozard Private Limited</p>
+                        <p class="mb-1"><strong>Account Number:</strong> 054261900001140</p>
+                        <p class="mb-1"><strong>IFSC Code:</strong> YESB0000542</p>
+                    </div>
+                <div class="form-group mb-3">
+                    <label class="text-muted" for="startDate">Start Date Preference</label>
+                    <input type="date" class="form-control border-0 shadow-sm rounded-3" ng-model="intern.start_date" required>
+                </div>
+                <div class="form-group mb-3">
+                    <label class="text-muted" for="experience">Prior Experience in AngularJS & Laravel PHP?</label>
+                    <select class="form-control border-0 shadow-sm rounded-3" ng-model="intern.experience" required>
+                        <option>Yes</option>
+                        <option>No</option>
+                    </select>
+                </div>
+
+                <!-- Payment & Documents -->
+                <div class="form-group mb-3">
+                    <label class="text-muted" for="paymentProof">Payment Confirmation Upload (PNG, JPG, JPEG, Max 1MB)</label>
+                    <input type="file" id="paymentProof" class="form-control border-0 shadow-sm rounded-3" accept="image/png, image/jpg, image/jpeg" required>
+                    <small id="paymentProofError" class="text-danger"></small> <!-- Updated ID -->
+                </div>
+
+                <!-- Resume Upload -->
+                <div class="form-group mb-3">
+                    <label class="text-muted" for="resume">Resume Upload (PDF, Max 2MB)</label>
+                    <input type="file" id="resume" class="form-control border-0 shadow-sm rounded-3" accept="application/pdf" required>
+                    <small id="resumeError" class="text-danger"></small> <!-- Updated ID -->
+                </div>
+
+                <!-- ID Proof Upload -->
+                <div class="form-group mb-3">
+                    <label class="text-muted" for="idProof">ID Proof Upload (Aadhar/PAN/College ID - PNG, JPG, JPEG, PDF, Max 2MB)</label>
+                    <input type="file" id="idProof" class="form-control border-0 shadow-sm rounded-3" accept="image/png, image/jpeg, image/jpg, application/pdf" required>
+                    <small id="idProofError" class="text-danger"></small> <!-- Updated ID -->
+                </div>
+
+                <!-- Terms & Conditions -->
+                <h5 class="text-info mb-4" style="font-family: 'Poppins', sans-serif; font-size: 1.1rem; font-weight: 600;">5. Terms & Conditions Agreement</h5>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="internshipType" ng-model="intern.internship_type" value="Basic" required>
-                    <label class="form-check-label">Basic (1 Month) - ₹1,499</label>
+                    <input class="form-check-input" type="checkbox" required>
+                    <label class="form-check-label">I confirm that all details provided are true and correct.</label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="internshipType" ng-model="intern.internship_type" value="Advanced">
-                    <label class="form-check-label">Advanced (3 Months) - ₹4,999</label>
+                    <input class="form-check-input" type="checkbox" required>
+                    <label class="form-check-label">I agree to the terms and conditions of the internship program.</label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="internshipType" ng-model="intern.internship_type" value="Pro">
-                    <label class="form-check-label">Pro (3-6 Months, Live Project) - ₹9,999</label>
+                    <input class="form-check-input" type="checkbox" required>
+                    <label class="form-check-label">I understand that the internship fee is non-refundable.</label>
                 </div>
-            </div>
-            <div class="form-group mb-3">
-                <label class="text-muted" for="startDate">Start Date Preference</label>
-                <input type="date" class="form-control border-0 shadow-sm rounded-3" ng-model="intern.start_date" required>
-            </div>
-            <div class="form-group mb-3">
-                <label class="text-muted" for="experience">Prior Experience in AngularJS & Laravel PHP?</label>
-                <select class="form-control border-0 shadow-sm rounded-3" ng-model="intern.experience" required>
-                    <option>Yes</option>
-                    <option>No</option>
-                </select>
-            </div>
 
-            <!-- Payment & Documents -->
-            <h5 class="text-info mb-4" style="font-family: 'Poppins', sans-serif; font-size: 1.1rem; font-weight: 600;">4. Payment & Documents</h5>
-            <div class="form-group mb-3">
-                <label class="text-muted" for="paymentProof">Payment Confirmation Upload</label>
-                <input type="file" id="paymentProof" class="form-control border-0 shadow-sm rounded-3" accept="image/png, image/jpg, image/jpeg" required>
-            </div>
-            <div class="form-group mb-3">
-                <label class="text-muted" for="resume">Resume Upload (PDF, Max 2MB)</label>
-                <input type="file" id="resume" class="form-control border-0 shadow-sm rounded-3" accept="application/pdf" required>
-            </div>
-            <div class="form-group mb-3">
-                <label class="text-muted" for="idProof">ID Proof Upload (Aadhar/PAN/College ID)</label>
-                <input type="file" id="idProof" class="form-control border-0 shadow-sm rounded-3" accept="image/png, image/jpeg,  image/jpg, application/pdf" required>
-            </div>
+                <!-- Submit Button -->
+                <div class="d-grid mt-4">
+                    <button type="submit" class="btn btn-primary shadow-sm rounded-3">Submit Application</button>
+                </div>
 
-            <!-- Terms & Conditions -->
-            <h5 class="text-info mb-4" style="font-family: 'Poppins', sans-serif; font-size: 1.1rem; font-weight: 600;">5. Terms & Conditions Agreement</h5>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" required>
-                <label class="form-check-label">I confirm that all details provided are true and correct.</label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" required>
-                <label class="form-check-label">I agree to the terms and conditions of the internship program.</label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" required>
-                <label class="form-check-label">I understand that the internship fee is non-refundable.</label>
-            </div>
-
-            <!-- Submit Button -->
-            <div class="d-grid mt-4">
-                <button type="submit" class="btn btn-primary shadow-sm rounded-3">Submit Application</button>
-            </div>
-
-        </form>
-        <p ng-show="successMessage" style="color: green;">@{{ successMessage }}</p>
+            </form>
+            <p ng-show="successMessage" style="color: green;">@{{ successMessage }}</p>
+        </div>
     </div>
-</div>
 
 
 

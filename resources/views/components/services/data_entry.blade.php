@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"  ng-app="changename">
 <head>
 <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
   <link href="{{ asset('vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
@@ -34,7 +34,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.min.js"></script>
   <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    <title>Data Entry Page</title>
+  <title>Tecnozard</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
@@ -174,17 +174,17 @@
         </div>
         <div class="entry-content">
             <h2>Data Entry Services</h2>
-            <p>Our data entry services ensure accuracy and efficiency in handling large volumes of information.</p>
+            <p>Are you skilled in data entry and looking for an opportunity to work with us? We are hiring dedicated employees for our *Data Entry Project*. Apply now and join our team</p>
 
             <h3>Key Features:</h3>
             <ul>
-                <li>Fast and Accurate Data Entry</li>
-                <li>Manual and Automated Data Processing</li>
-                <li>High Security and Confidentiality</li>
-                <li>Bulk Data Management</li>
-                <li>24/7 Support</li>
+                <li> Enter and update data accurately in the system                </li>
+                <li> Verify and review data for errors </li>
+                <li>Maintain confidentiality and security of information </li>
+                <li> Good typing speed (Minimum 35-40 WPM)</li>
+                <li>Basic knowledge of MS Excel & Google Sheets</li>
             </ul>
-            <a href="/contact" class="btn">Contact Us</a>
+            <a href="{{ route('careerpage') }}" class="btn">Apply</a>
         </div>
     </div>
 

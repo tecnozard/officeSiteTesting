@@ -4,10 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\Career;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\CareerApplicationUserMail;
 use App\Mail\CareerApplicationAdminMail;
+use App\Models\TypingTestResult;
+
 
 class CareerController extends Controller
 {
@@ -23,8 +26,6 @@ class CareerController extends Controller
      */
     public function career(Request $request)
     {
-        $mailUsername = config('mail.mailers.smtp.username');
-
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|max:255',
@@ -52,11 +53,20 @@ class CareerController extends Controller
                 'experience' => $request->experience,
                 'resume' => $resumePath
             ]);
-            // Send Email to User
-        Mail::to($career->email)->send(new CareerApplicationUserMail($career));
+
+            if (strtolower($career->position) === 'data entry') {
+                // Generate Typing Test Link (expires in 48 hours)
+                $testLink = URL::signedRoute('online.test', ['careerId' => $career->id], now()->addHours(48));
+
+                Mail::to($career->email)->send(new CareerApplicationUserMail($career, $testLink));
+            } else {
+                // Send a regular email without the test link
+                Mail::to($career->email)->send(new CareerApplicationUserMail($career));
+            }
+
 
         // Send Email to Admin
-        Mail::to($mailUsername)->send(new CareerApplicationAdminMail($career));
+        Mail::to('poovarasan@tecnozard.com')->send(new CareerApplicationAdminMail($career));
 
             return response()->json([
                 'message' => 'Application submitted successfully',
@@ -143,4 +153,29 @@ class CareerController extends Controller
 
         return response()->json(['message' => 'Application deleted successfully'], 200);
     }
+    public function showTest(Request $request, $careerId)
+{
+    // Ensure that the signed route is valid
+    if (!$request->hasValidSignature()) {
+        abort(403, 'Unauthorized access. This link has expired or is invalid.');
+    }
+
+    // Retrieve the career application
+    $career = Career::find($careerId);
+    if (!$career) {
+        return abort(404, 'Application not found');
+    }
+
+    // Check if a test result exists for the given careerId
+    $existingTest = TypingTestResult::where('career_id', $careerId)->exists();
+
+    if ($existingTest) {
+        return view('components.test.alreadytestcompleted', compact('career'));
+    }
+
+    // Show the typing test form
+    return view('components.test.typingtest', compact('career'));
+}
+
+
 }

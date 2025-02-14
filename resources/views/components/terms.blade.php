@@ -1,8 +1,5 @@
 
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
 <!DOCTYPE html>
 <html lang="en" >
 
@@ -17,7 +14,7 @@
 
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Tecnozard |</title>
+   <title>Tecnozard</title>
   <meta name="description" content="Innovation & Excellence - Harnessing the power of technology to deliver high-impact, scalable solutions for your business.">
   <meta name="keywords" content="Tecnozard">
   <meta property="og:title" content="Tecnozard Private Limited">
@@ -62,7 +59,7 @@
 <section id="alt-features" class="alt-features section">
     <div class="container section-title" data-aos="fade-up">
         <h2>Last updated : 12th JAN 2025</h2>
-        <p>Terms and condition<br></p>
+        <p>Terms and Condition<br></p>
     </div>
     <div class="container">
         <div class="row gy-5">

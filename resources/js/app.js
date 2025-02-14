@@ -261,7 +261,7 @@ app.controller('CareerController', function ($scope, $http) {
             headers: { 'Content-Type': undefined }
         }).then(function (response) {
             $scope.successMessage = "Form submitted successfully!";
-            
+
             // Reset the form
              // Reset model
             $scope.career = {}; // Clear form
@@ -276,7 +276,20 @@ app.controller('CareerController', function ($scope, $http) {
             console.error('Submission Error:', error);
         });
     };
+    document.getElementById("careerResume").addEventListener("change", function () {
+        let file = this.files[0]; // Get the uploaded file
+        let maxSize = 2 * 1024 * 1024; // 2MB in bytes
+        let errorMsg = document.getElementById("careerResumeError");
+
+        if (file && file.size > maxSize) {
+            errorMsg.textContent = "File size is more than 2MB. Please reduce and upload again.";
+            this.value = ""; // Clear the file input
+        } else {
+            errorMsg.textContent = ""; // Clear error if valid
+        }
+    });
 });
+
 
 //date formate for internship
 
@@ -360,7 +373,47 @@ app.controller('InternshipController', function ($scope, $http) {
             alert('Please fill in all required fields.');
         }
     };
+
+
 });
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll('input[type="file"]').forEach(function (input) {
+      input.addEventListener("change", function () {
+        var file = this.files[0]; // Get the uploaded file
+        var errorMsg = document.getElementById(this.id + "Error"); // Get the corresponding error message element
+        var maxSize = 0; // Default max size (prevent undefined issue)
+
+        // Define max size based on input type
+        if (this.id === "resume") {
+          maxSize = 2 * 1024 * 1024; // 2MB for Resume
+        } else if (this.id === "paymentProof") {
+          maxSize = 1 * 1024 * 1024; // 1MB for Payment Proof
+        } else if (this.id === "idProof") {
+          maxSize = 2 * 1024 * 1024; // 2MB for ID Proof
+        }
+
+        // Validate file size
+        if (file) {
+          if (maxSize === 0) {
+            // If maxSize is not set, block upload
+            errorMsg.textContent = "Invalid file upload!";
+            this.value = ""; // Clear the file input
+            return;
+          }
+
+          if (file.size > maxSize) {
+            errorMsg.textContent = "File size is more than " + maxSize / (1024 * 1024) + "MB. Please reduce and upload again.";
+            this.value = ""; // Clear the file input
+          } else {
+            errorMsg.textContent = ""; // Clear error if valid
+          }
+        }
+      });
+    });
+  });
+
+
+
 
 
 
@@ -433,5 +486,174 @@ app.controller('ContactController', function ($scope, $http, $timeout) {
             });
     };
 });
+
+
+//nav bar
+document.addEventListener("DOMContentLoaded", function () {
+    // Get the current page URL path (without query params)
+    let currentPath = new URL(window.location.href).pathname;
+
+    // Select all nav links
+    let navLinks = document.querySelectorAll("#navmenu ul li a");
+
+    // Remove 'active' class from all links before applying
+    navLinks.forEach(link => link.classList.remove("active"));
+
+    let isServicePage = false; // Flag to check if any service page is active
+
+    // Loop through links and set active class
+    navLinks.forEach(link => {
+        let linkPath = new URL(link.href, window.location.origin).pathname;
+
+        if (linkPath === currentPath) {
+            link.classList.add("active");
+
+            // Check if the link is inside the Services dropdown
+            if (link.closest(".dropdown")) {
+                isServicePage = true;
+            }
+        }
+    });
+
+    // If any service page is active, highlight the Services menu
+    if (isServicePage) {
+        document.querySelector(".dropdown > a").classList.add("active");
+    }
+});
+
+
+
+
+
+//speedtest
+var app = angular.module("TypingTestApp", []);
+app.controller("TypingTestController", function ($scope, $http, $interval) {
+    $scope.career_id = parseInt(document.getElementById('attender').innerText, 10);
+    $scope.typedText = "";
+    $scope.currentWords = ""; // Ensure it's initialized
+    $scope.wordCount = 0;
+    $scope.correctWords = 0;
+    $scope.totalWords = 0;
+    $scope.timeLeft = 60;
+    $scope.timerStarted = false;
+    $scope.testCompleted = false;
+
+
+    let timer;
+
+    // Function to generate random words
+    function generateParagraph() {
+        const paragraphs = [
+          "Typing is an essential skill in today's digital world. Whether you're writing emails, creating documents, or coding, the ability to type quickly and accurately can significantly improve productivity. Many people rely on typing tests to measure their speed and accuracy. Regular practice with meaningful paragraphs helps enhance muscle memory and reduce errors. It's important to focus on correct finger placement and avoid looking at the keyboard while typing. Developing good habits early can make a huge difference in long-term efficiency. A structured typing test provides users with real-world content, making the learning process more engaging and useful.",
+
+          "Technology has transformed communication, making it faster and more accessible than ever. In the past, sending letters took days or even weeks, but now, emails and instant messages are delivered within seconds. Social media platforms allow people to stay connected regardless of distance. Businesses rely on technology to improve efficiency and reach a global audience. Online education has also gained popularity, enabling students to learn from anywhere in the world. However, the increasing dependence on digital communication has also raised concerns about privacy and security. It is essential to balance the benefits of technology with responsible usage.",
+
+          "The internet is one of the greatest inventions of modern times. It has revolutionized the way people access information, conduct business, and communicate with others. Search engines provide instant answers to almost any question, making research more efficient. Online shopping has changed the retail industry, offering convenience and a vast selection of products. Streaming services allow users to watch movies, listen to music, and enjoy entertainment on demand. However, excessive internet usage can lead to distractions and reduced productivity. To make the most of the internet, users should practice moderation and focus on meaningful activities.",
+
+          "Success is often the result of dedication, hard work, and perseverance. Many people face challenges on their journey to achieving their goals, but those who remain determined and adaptable are more likely to succeed. Learning from failures is a crucial part of personal growth. People who embrace challenges as opportunities for improvement often develop resilience and problem-solving skills. Setting clear goals and maintaining a positive mindset are essential strategies for success. Additionally, surrounding yourself with supportive and motivated individuals can help keep you inspired. No matter how difficult the journey may seem, persistence always leads to progress.",
+
+          "Reading is a valuable habit that can enhance knowledge and improve cognitive skills. People who read regularly develop better vocabulary, comprehension, and critical thinking abilities. Books provide insights into different cultures, historical events, and scientific discoveries. Fiction allows readers to experience different perspectives and develop empathy. In today's fast-paced world, digital devices make reading more accessible through e-books and audiobooks. However, spending too much time on social media and entertainment apps can reduce reading habits. Setting aside dedicated time for reading each day can help cultivate a lifelong passion for learning and personal development."
+        ];
+
+        // Select a random paragraph
+        $scope.currentWords = paragraphs[Math.floor(Math.random() * paragraphs.length)];
+      }
+
+      generateParagraph(); // Call the function when the page loads
+
+    // Function to start the timer
+    $scope.startTimer = function () {
+      if (!$scope.timerStarted) {
+        $scope.timerStarted = true;
+        timer = $interval(function () {
+          if ($scope.timeLeft > 0) {
+            $scope.timeLeft--;
+          } else {
+            $scope.endTest();
+            $interval.cancel(timer);
+          }
+        }, 1000);
+      }
+    };
+
+    // Function to check word correctness
+    $scope.checkWord = function () {
+      let typedWords = $scope.typedText.trim().split(" ");
+      let correct = 0;
+      let total = typedWords.length;
+
+      let generatedWordsArray = $scope.currentWords.split(" ");
+
+      typedWords.forEach((word, index) => {
+        if (word === generatedWordsArray[index]) {
+          correct++;
+        }
+      });
+
+      $scope.wordCount = total;
+      $scope.correctWords = correct;
+      $scope.totalWords = total;
+      $scope.accuracy = total > 0 ? Math.round((correct / total) * 100) : 0;
+    };
+
+    // Function to end the test
+    $scope.endTest = function () {
+      $scope.testCompleted = true;
+      if ($scope.wordCount >= 30 && $scope.accuracy >= 85) {
+        $scope.message = "User, your team will contact you.";
+        saveToDatabase(true);
+      } else {
+        $scope.message = "Test completed. Try again!";
+        saveToDatabase(false);
+      }
+    };
+
+    // Function to save test results
+    function saveToDatabase(isSelected) {
+      let data = {
+        career_id: $scope.career_id,
+        words_typed: $scope.wordCount,
+        accuracy: $scope.accuracy,
+        is_selected: isSelected ? 1 : 0,
+      };
+
+      $http.post("/api/save-typing-test", data)
+        .then(function (response) {
+          console.log("Data saved successfully:", response.data);
+        })
+        .catch(function (error) {
+          console.error("Error saving data:", error);
+        });
+    }
+
+  });
+//disable right click
+
+document.addEventListener("contextmenu", function (event) {
+    event.preventDefault();
+
+    });
+document.addEventListener("keydown", function (event) {
+    if (event.ctrlKey && (event.key === "u" || event.key === "U")) {
+        event.preventDefault();
+
+    }
+    if (event.ctrlKey && event.shiftKey && (event.key === "i" || event.key === "I")) {
+        event.preventDefault();
+
+    }
+    if (event.key === "F12") {
+        event.preventDefault();
+
+    }
+});
+
+
+
+
+
+
+
+
 
 

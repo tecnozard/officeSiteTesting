@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"  ng-app="changename">
 <head>
 <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
   <link href="{{ asset('vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
@@ -33,7 +33,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.min.js"></script>
   <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    <title>Web Application Services</title>
+  <title>Tecnozard</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
@@ -189,7 +189,7 @@
                 <li>Website Maintenance & Support</li>
             </ul>
 
-            <a href="/contact" class="btn">Contact Us</a>
+            <a href="{{ route('contactpage') }}" class="btn">Contact Us</a>
         </div>
     </div>
     @include('components.footer')

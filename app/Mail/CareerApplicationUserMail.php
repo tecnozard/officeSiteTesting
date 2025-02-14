@@ -13,13 +13,15 @@ class CareerApplicationUserMail extends Mailable
 {
     use Queueable, SerializesModels;
     public $career;
+    public $testLink;
     /**
      * Create a new message instance.
      */
-    public function __construct($career)
+    public function __construct($career, $testLink = null)
     {
         //
         $this->career = $career;
+        $this->testLink = $testLink;
     }
 
     // /**
@@ -55,7 +57,7 @@ class CareerApplicationUserMail extends Mailable
     {
         return $this->subject('Thank You for Your Application')
                     ->view('emails.career-user')
-                    ->with(['career' => $this->career])
+                    ->with(['career' => $this->career, 'testLink' => $this->testLink])
                     ->attach(public_path('img/Tecnozard v1.png'), [
                         'as' => 'company_logo.png',
                         'mime' => 'image/png'

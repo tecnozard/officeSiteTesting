@@ -89,6 +89,13 @@
         <p>Our team will carefully review your application and contact you shortly.</p>
         <p>We appreciate your interest in joining <strong>Tecnozard Private Limited</strong>.</p>
 
+        <!-- Conditional Section for Data Entry Applicants -->
+        @if ($testLink)
+    <p>As part of our selection process, please complete the typing test using the link below:</p>
+    <p><a href="{{ $testLink }}">Click here to start your typing test</a></p>
+    <p><strong>Note:</strong> This link is valid for 48 hours. Please complete the test before it expires.</p>
+    @endif
+
         <!-- Footer -->
         <div class="footer">
             <p><strong>Best Regards,</strong></p>
