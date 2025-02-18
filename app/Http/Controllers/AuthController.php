@@ -16,7 +16,7 @@ class AuthController extends Controller
         ]);
 
         // Hardcoded admin credentials
-        $hardcodedEmail = 'tecnozard@ceo.com';
+        $hardcodedEmail = 'ceo@tecnozard.com';
         $hardcodedPassword = 'g8X$1vJ9'; // Change for security
 
         if ($request->email === $hardcodedEmail && $request->password === $hardcodedPassword) {

@@ -66,7 +66,7 @@ class CareerController extends Controller
 
 
         // Send Email to Admin
-        Mail::to('poovarasan@tecnozard.com')->send(new CareerApplicationAdminMail($career));
+        Mail::to(env('MAIL_USERNAME'))->send(new CareerApplicationAdminMail($career));
 
             return response()->json([
                 'message' => 'Application submitted successfully',

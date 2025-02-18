@@ -79,7 +79,7 @@ class InternshipController extends Controller
         // Save to database
         $internship = Internship::create($data);
         // Send email to admin
-        Mail::to('poovarasan@tecnozard.com')->send(new InternshipAdminMail($internship));
+        Mail::to(env('MAIL_USERNAME'))->send(new InternshipAdminMail($internship));
         // Send email to user
         Mail::to($internship->email)->send(new InternshipUserMail($internship));
 

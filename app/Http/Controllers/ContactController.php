@@ -33,7 +33,8 @@ class ContactController extends Controller
         ]));
 
         // Send email to admin
-        Mail::to('poovarasan@tecnozard.com')->send(new AdminContactMail([
+        
+        Mail::to(env('MAIL_USERNAME'))->send(new AdminContactMail([
             'name' => $request->name,
             'email' => $request->email,
             'subject' => $request->subject,
