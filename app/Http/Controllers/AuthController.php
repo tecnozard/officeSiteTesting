@@ -1,10 +1,12 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Career;
 use App\Models\Contact;
 use App\Models\Internship;
+use Carbon\Carbon;
 
 class AuthController extends Controller
 {
@@ -53,14 +55,14 @@ class AuthController extends Controller
 
     private function getGreetingMessage()
     {
-        $hour = now()->hour;
+        $hour = Carbon::now()->timezone(config('app.timezone'))->hour;
 
         if ($hour >= 5 && $hour < 12) {
             return "Good Morning, Admin!";
         } elseif ($hour >= 12 && $hour < 18) {
             return "Good Afternoon, Admin!";
         } else {
-            return "Good Night, Admin!";
+            return "Good Evening, Admin!";
         }
     }
 }
