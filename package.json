@@ -8,10 +8,12 @@
     },
     "devDependencies": {
         "axios": "^1.6.4",
+        "javascript-obfuscator": "^4.1.1",
         "laravel-mix": "^6.0.49",
         "resolve-url-loader": "^5.0.0",
         "sass": "^1.83.4",
-        "sass-loader": "^16.0.4"
+        "sass-loader": "^16.0.4",
+        "terser-webpack-plugin": "^5.3.11"
     },
     "dependencies": {
         "angular": "^1.8.3",
