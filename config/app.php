@@ -70,8 +70,7 @@ return [
     |
     */
 
-    // 'timezone' => 'UTC',
-    'timezone' => 'Asia/Kolkata',
+    'timezone' => env('APP_TIMEZONE', 'UTC'),
 
     /*
     |--------------------------------------------------------------------------
